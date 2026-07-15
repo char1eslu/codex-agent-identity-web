@@ -29,7 +29,7 @@ button:disabled { cursor: not-allowed; opacity: .5; }
 .tool-shell {
   width: min(680px, calc(100% - 40px));
   margin: 0 auto;
-  padding: clamp(42px, 8vh, 76px) 0 36px;
+  padding: 28px 0 36px;
 }
 
 .title-row {
@@ -77,6 +77,49 @@ h2 { font-size: 15px; line-height: 1.25; }
   margin-bottom: 8px;
 }
 
+.label-with-help { display: flex; align-items: center; gap: 6px; }
+
+.help-wrap { position: relative; display: inline-flex; }
+.help-trigger {
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #cfd3d0;
+  border-radius: 50%;
+  background: #fff;
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+.help-trigger:hover, .help-trigger:focus-visible { border-color: #8d948f; color: var(--ink); }
+.tooltip {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 8px);
+  left: 0;
+  width: max-content;
+  max-width: 260px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: #fff;
+  box-shadow: 0 5px 18px rgba(23, 26, 24, .09);
+  color: var(--ink);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 1.45;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-3px);
+  transition: opacity .14s ease, transform .14s ease;
+}
+.tooltip-above { top: auto; right: 0; bottom: calc(100% + 8px); left: auto; transform: translateY(3px); }
+.tooltip a { margin-left: 4px; color: var(--green); }
+.help-wrap:hover .tooltip, .help-trigger:focus + .tooltip { opacity: 1; pointer-events: auto; transform: translateY(0); }
+
 .field-head label, .output-label {
   color: var(--ink);
   font-size: 13px;
@@ -112,6 +155,7 @@ textarea.output { min-height: 230px; background: var(--soft); }
 .input-actions, .result-actions {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
   gap: 8px;
   margin-top: 12px;
 }
@@ -191,7 +235,7 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
 .usage-comic {
   width: 100%;
   height: auto;
-  aspect-ratio: 1672 / 620;
+  aspect-ratio: 1672 / 565;
   display: block;
   margin: 0 0 16px;
   border: 1px solid #eceeec;
@@ -213,7 +257,7 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
   min-width: 0;
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
-  grid-template-rows: auto auto auto;
+  grid-template-rows: auto auto auto auto;
   column-gap: 7px;
   row-gap: 2px;
 }
@@ -236,25 +280,17 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
 code, .config-block pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .usage-steps code { font-size: inherit; }
 
-.config-block {
-  margin-top: 16px;
-  padding-top: 10px;
+.step-config {
+  grid-column: 2;
+  margin-top: 7px;
+  padding-top: 7px;
   border-top: 1px solid #eceeec;
 }
 
-.config-head {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 12px;
-  color: var(--muted);
-  font-size: 10px;
-}
-
-.config-block pre {
+.step-config pre {
   margin: 5px 0 0;
   color: var(--ink);
-  font-size: 10px;
+  font-size: 9px;
   line-height: 1.5;
 }
 
@@ -263,8 +299,7 @@ code, .config-block pre { font-family: "SFMono-Regular", Consolas, "Liberation M
   white-space: nowrap;
 }
 
-.config-head .text-button { flex: 0 0 auto; font-size: 10px; }
-.usage-note { margin: 10px 0 0; color: var(--muted); font-size: 11px; line-height: 1.45; }
+.step-config .text-button { margin-top: 5px; font-size: 10px; }
 
 .error-banner {
   margin-top: 14px;

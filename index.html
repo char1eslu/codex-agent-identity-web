@@ -43,7 +43,13 @@
 
       <section id="input-view" aria-labelledby="input-label">
         <div class="field-head">
-          <label id="input-label" for="auth-input">认证 JSON</label>
+          <div class="label-with-help">
+            <label id="input-label" for="auth-input">认证 JSON</label>
+            <span class="help-wrap">
+              <button class="help-trigger" type="button" aria-label="如何获取认证 JSON">?</button>
+              <span class="tooltip" role="tooltip">Web auth JSON 可从 ChatGPT 会话接口获取。<a href="https://chatgpt.com/api/auth/session" target="_blank" rel="noreferrer">打开获取</a></span>
+            </span>
+          </div>
           <span id="detected-type" class="detected-type" hidden></span>
         </div>
         <textarea
@@ -54,6 +60,10 @@
         ></textarea>
         <div class="input-actions">
           <button id="convert-button" class="primary" type="button">转换</button>
+          <span class="help-wrap">
+            <button class="help-trigger" type="button" aria-label="转换时如何处理私钥">?</button>
+            <span class="tooltip tooltip-above" role="tooltip">私钥在本机生成；每次请求动态签名。</span>
+          </span>
         </div>
 
       </section>
@@ -92,7 +102,7 @@
           <h3 id="usage-title">在 Codex 中使用</h3>
           <span>请使用自己部署版本，确保安全处理凭据。</span>
         </div>
-        <img class="usage-comic" src="/agentid-usage-comic.png" alt="四格：生成身份文件、替换文件、开启开关、开始使用" />
+        <img class="usage-comic" src="/agentid-usage-comic.webp" alt="四格：生成身份文件、替换文件、开启开关、开始使用" />
         <ol class="usage-steps">
           <li>
             <span class="usage-index">1</span>
@@ -108,6 +118,12 @@
             <span class="usage-index">3</span>
             <strong>开启</strong>
             <small>写入配置文件</small>
+            <div class="step-config">
+              <code class="config-path">~/.codex/config.toml</code>
+              <pre id="codex-config">[features]
+use_agent_identity = true</pre>
+              <button id="copy-config-button" class="text-button" type="button">复制</button>
+            </div>
           </li>
           <li>
             <span class="usage-index">4</span>
@@ -115,15 +131,6 @@
             <small>重新打开 Codex</small>
           </li>
         </ol>
-        <div class="config-block">
-          <div class="config-head">
-            <span><code class="config-path">~/.codex/config.toml</code></span>
-            <button id="copy-config-button" class="text-button" type="button">复制</button>
-          </div>
-          <pre id="codex-config">[features]
-use_agent_identity = true</pre>
-        </div>
-        <p class="usage-note">私钥留在本地；每次请求动态签名。</p>
       </section>
 
       <div id="error-banner" class="error-banner" hidden role="alert">
