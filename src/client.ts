@@ -198,7 +198,7 @@ async function copyCodexConfig(): Promise<void> {
   await navigator.clipboard.writeText(config + "\n");
   const button = element<HTMLButtonElement>("copy-config-button");
   button.textContent = "已复制";
-  setTimeout(() => { button.textContent = "复制配置"; }, 1400);
+  setTimeout(() => { button.textContent = "复制"; }, 1400);
 }
 
 function downloadOutput(): void {

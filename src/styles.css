@@ -191,13 +191,13 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
 .usage-comic {
   width: 100%;
   height: auto;
-  aspect-ratio: 16 / 7;
+  aspect-ratio: 1672 / 620;
   display: block;
   margin: 0 0 16px;
   border: 1px solid #eceeec;
   border-radius: 6px;
   object-fit: cover;
-  object-position: center 58%;
+  object-position: center;
 }
 
 .usage-steps {
@@ -213,7 +213,7 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
   min-width: 0;
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
-  grid-template-rows: auto auto;
+  grid-template-rows: auto auto auto;
   column-gap: 7px;
   row-gap: 2px;
 }
@@ -233,27 +233,37 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
 
 .usage-steps strong { overflow: hidden; font-size: 12px; line-height: 18px; text-overflow: ellipsis; white-space: nowrap; }
 .usage-steps small { overflow: hidden; color: var(--muted); font-size: 10px; line-height: 14px; text-overflow: ellipsis; white-space: nowrap; }
-code, .config-line pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
+code, .config-block pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .usage-steps code { font-size: inherit; }
 
-.config-line {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
+.config-block {
   margin-top: 16px;
-  padding: 10px 0 0;
+  padding-top: 10px;
   border-top: 1px solid #eceeec;
 }
 
-.config-line pre {
-  margin: 0;
+.config-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.config-block pre {
+  margin: 5px 0 0;
   color: var(--ink);
-  font-size: 11px;
+  font-size: 10px;
   line-height: 1.5;
 }
 
-.config-line .text-button { flex: 0 0 auto; }
+.config-path {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.config-head .text-button { flex: 0 0 auto; font-size: 10px; }
 .usage-note { margin: 10px 0 0; color: var(--muted); font-size: 11px; line-height: 1.45; }
 
 .error-banner {

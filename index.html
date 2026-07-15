@@ -90,7 +90,7 @@
       <section class="usage-guide" aria-labelledby="usage-title">
         <div class="usage-heading">
           <h3 id="usage-title">在 Codex 中使用</h3>
-          <span>演示站，请使用自己的部署版本处理凭据</span>
+          <span>请使用自己部署版本，确保安全处理凭据。</span>
         </div>
         <img class="usage-comic" src="/agentid-usage-comic.png" alt="四格：生成身份文件、替换文件、开启开关、开始使用" />
         <ol class="usage-steps">
@@ -107,7 +107,7 @@
           <li>
             <span class="usage-index">3</span>
             <strong>开启</strong>
-            <small>写入 <code>config.toml</code></small>
+            <small>写入配置文件</small>
           </li>
           <li>
             <span class="usage-index">4</span>
@@ -115,10 +115,13 @@
             <small>重新打开 Codex</small>
           </li>
         </ol>
-        <div class="config-line">
+        <div class="config-block">
+          <div class="config-head">
+            <span>第 3 步 · <code class="config-path">~/.codex/config.toml</code></span>
+            <button id="copy-config-button" class="text-button" type="button">复制</button>
+          </div>
           <pre id="codex-config">[features]
 use_agent_identity = true</pre>
-          <button id="copy-config-button" class="text-button" type="button">复制配置</button>
         </div>
         <p class="usage-note">私钥留在本地；每次请求动态签名。</p>
       </section>
