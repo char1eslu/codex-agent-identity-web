@@ -83,6 +83,41 @@
           <button id="copy-button" class="secondary" type="button">复制</button>
           <button id="download-button" class="primary" type="button">下载</button>
         </div>
+
+        <section class="usage-guide" aria-labelledby="usage-title">
+          <div class="usage-heading">
+            <h3 id="usage-title">在 Codex 中使用</h3>
+            <span>演示站，请使用自己的部署版本处理凭据</span>
+          </div>
+          <ol class="usage-steps">
+            <li>
+              <span class="usage-index">1</span>
+              <strong>下载</strong>
+              <small>保存为 <code>auth.json</code></small>
+            </li>
+            <li>
+              <span class="usage-index">2</span>
+              <strong>替换</strong>
+              <small><code>~/.codex/auth.json</code></small>
+            </li>
+            <li>
+              <span class="usage-index">3</span>
+              <strong>开启</strong>
+              <small>写入 <code>config.toml</code></small>
+            </li>
+            <li>
+              <span class="usage-index">4</span>
+              <strong>启动</strong>
+              <small>重新打开 Codex</small>
+            </li>
+          </ol>
+          <div class="config-line">
+            <pre id="codex-config">[features]
+use_agent_identity = true</pre>
+            <button id="copy-config-button" class="text-button" type="button">复制配置</button>
+          </div>
+          <p class="usage-note">私钥留在本地；每次请求动态签名。</p>
+        </section>
       </section>
 
       <div id="error-banner" class="error-banner" hidden role="alert">

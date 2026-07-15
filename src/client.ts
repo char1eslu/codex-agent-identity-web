@@ -192,6 +192,15 @@ async function copyOutput(): Promise<void> {
   setTimeout(() => { button.textContent = "复制"; }, 1400);
 }
 
+async function copyCodexConfig(): Promise<void> {
+  const config = element<HTMLElement>("codex-config").textContent?.trim();
+  if (!config) return;
+  await navigator.clipboard.writeText(config + "\n");
+  const button = element<HTMLButtonElement>("copy-config-button");
+  button.textContent = "已复制";
+  setTimeout(() => { button.textContent = "复制配置"; }, 1400);
+}
+
 function downloadOutput(): void {
   if (!output.value) return;
   const url = URL.createObjectURL(new Blob([output.value + "\n"], { type: "application/json" }));
@@ -205,6 +214,7 @@ function downloadOutput(): void {
 input.addEventListener("input", updateDetectedType);
 convertButton.addEventListener("click", () => void convert());
 element("copy-button").addEventListener("click", () => void copyOutput());
+element("copy-config-button").addEventListener("click", () => void copyCodexConfig());
 element("download-button").addEventListener("click", downloadOutput);
 element("reset-button").addEventListener("click", reset);
 element("dismiss-error").addEventListener("click", clearError);
