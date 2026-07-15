@@ -13,7 +13,8 @@
     "deploy:production": "npm run build && wrangler deploy --config wrangler.production.jsonc"
   },
   "dependencies": {
-    "libsodium-wrappers": "0.7.15"
+    "libsodium-wrappers": "0.7.15",
+    "simple-icons": "^16.26.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^5.20260715.1",

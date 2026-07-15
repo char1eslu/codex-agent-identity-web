@@ -39,6 +39,19 @@ button:disabled { cursor: not-allowed; opacity: .5; }
   margin-bottom: 32px;
 }
 
+.github-link {
+  width: 32px;
+  height: 32px;
+  margin-left: auto;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  color: var(--muted);
+}
+
+.github-link:hover { color: var(--ink); background: var(--soft); }
+.github-link svg { width: 18px; height: 18px; fill: currentColor; }
+
 .brand-mark {
   width: 28px;
   height: 28px;
@@ -174,7 +187,7 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
 }
 .error-banner button { padding: 0; border: 0; background: transparent; color: inherit; font-size: 18px; line-height: 1; }
 
-button:focus-visible, textarea:focus-visible { outline: 2px solid #4c5550; outline-offset: 2px; }
+button:focus-visible, textarea:focus-visible, .github-link:focus-visible { outline: 2px solid #4c5550; outline-offset: 2px; }
 
 @media (max-width: 560px) {
   .tool-shell { width: calc(100% - 28px); padding-top: 24px; }

@@ -1,4 +1,5 @@
 import "./styles.css";
+import { siGithub } from "simple-icons";
 import {
   decryptTaskId,
   generateKeyPair,
@@ -17,10 +18,10 @@ import {
   type ParsedOAuthInput,
 } from "./protocol";
 
-function element<T extends HTMLElement>(id: string): T {
+function element<T extends Element>(id: string): T {
   const value = document.getElementById(id);
   if (!value) throw new Error(`Missing element: ${id}`);
-  return value as T;
+  return value as unknown as T;
 }
 
 const input = element<HTMLTextAreaElement>("auth-input");
@@ -37,6 +38,7 @@ const resultSource = element<HTMLElement>("result-source");
 const resultPlan = element<HTMLElement>("result-plan");
 const errorBanner = element<HTMLElement>("error-banner");
 const errorMessage = element<HTMLElement>("error-message");
+element<SVGPathElement>("github-icon-path").setAttribute("d", siGithub.path);
 
 function setProgress(percent: number, title: string, detail: string): void {
   progressSection.hidden = false;
