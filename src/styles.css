@@ -253,11 +253,11 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
   list-style: none;
 }
 
-.usage-steps li {
+.usage-steps > li:not(.usage-config) {
   min-width: 0;
   display: grid;
   grid-template-columns: 18px minmax(0, 1fr);
-  grid-template-rows: auto auto auto auto;
+  grid-template-rows: auto auto;
   column-gap: 7px;
   row-gap: 2px;
 }
@@ -280,28 +280,36 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
 code, .config-block pre { font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace; }
 .usage-steps code { font-size: inherit; }
 
-.step-config {
-  grid-column: 2;
-  margin-top: 7px;
-  padding-top: 7px;
+.usage-config {
+  grid-column: 3 / -1;
+  margin-top: 4px;
+  padding-top: 10px;
   border-top: 1px solid #eceeec;
+  list-style: none;
 }
 
-.step-config pre {
+.config-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.usage-config pre {
   margin: 5px 0 0;
   color: var(--ink);
   font-size: 9px;
   line-height: 1.5;
 }
 
-.usage-steps code.config-path {
+.usage-config .config-path {
   color: var(--muted);
   font-size: 10px;
   font-weight: 500;
   white-space: nowrap;
 }
 
-.step-config .text-button { margin-top: 5px; font-size: 10px; }
+.config-head .text-button { flex: 0 0 auto; font-size: 10px; }
 
 .error-banner {
   margin-top: 14px;
@@ -330,6 +338,7 @@ button:focus-visible, textarea:focus-visible, .github-link:focus-visible { outli
   .usage-heading { align-items: flex-start; flex-direction: column; gap: 4px; }
   .usage-heading span { text-align: left; }
   .usage-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 14px; }
+  .usage-config { grid-column: 1 / -1; }
 }
 
 @media (prefers-reduced-motion: reduce) {
