@@ -294,7 +294,7 @@ code, .config-block pre { font-family: "SFMono-Regular", Consolas, "Liberation M
   line-height: 1.5;
 }
 
-.config-path {
+.usage-steps code.config-path {
   color: var(--muted);
   font-size: 10px;
   font-weight: 500;
