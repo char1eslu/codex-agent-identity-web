@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
+    <title>Agent ID</title>
+  </head>
+  <body>
+    <main class="tool-shell">
+      <div class="title-row">
+        <span class="brand-mark" aria-hidden="true">A</span>
+        <h1>Agent ID</h1>
+      </div>
+
+      <section id="input-view" aria-labelledby="input-label">
+        <div class="field-head">
+          <label id="input-label" for="auth-input">认证 JSON</label>
+          <span id="detected-type" class="detected-type" hidden></span>
+        </div>
+        <textarea
+          id="auth-input"
+          spellcheck="false"
+          autocomplete="off"
+          placeholder="粘贴 Web auth 或 Codex auth.json"
+        ></textarea>
+        <div class="input-actions">
+          <button id="convert-button" class="primary" type="button">转换</button>
+        </div>
+      </section>
+
+      <section id="progress-section" class="progress-section" hidden aria-live="polite">
+        <div class="progress-line"><span id="progress-fill"></span></div>
+        <div class="progress-meta">
+          <strong id="progress-title">正在处理</strong>
+          <span id="progress-detail"></span>
+        </div>
+      </section>
+
+      <section id="result-section" hidden aria-labelledby="result-title">
+        <div class="result-head">
+          <div class="result-status">
+            <span class="status-check" aria-hidden="true">✓</span>
+            <div>
+              <h2 id="result-title">已生成</h2>
+              <p><span id="result-source">-</span><span class="separator">·</span><span id="result-plan">-</span></p>
+            </div>
+          </div>
+          <button id="reset-button" class="text-button" type="button">重新转换</button>
+        </div>
+
+        <label class="output-label" for="auth-output">auth.json</label>
+        <textarea id="auth-output" class="output" readonly spellcheck="false"></textarea>
+        <div class="result-actions">
+          <button id="copy-button" class="secondary" type="button">复制</button>
+          <button id="download-button" class="primary" type="button">下载</button>
+        </div>
+      </section>
+
+      <div id="error-banner" class="error-banner" hidden role="alert">
+        <span id="error-message"></span>
+        <button id="dismiss-error" type="button" aria-label="关闭错误">×</button>
+      </div>
+    </main>
+    <script type="module" src="/src/client.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,28 @@
+{
+  "name": "codex-agent-identity-web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "check": "tsc --noEmit",
+    "test": "vitest run",
+    "validate:auth": "vite-node scripts/validate-auth.ts",
+    "verify:auth": "vite-node scripts/verify-auth.ts",
+    "dev": "wrangler dev",
+    "deploy": "vite-node scripts/check-deploy-config.ts && npm run build && wrangler deploy",
+    "deploy:production": "npm run build && wrangler deploy --config wrangler.production.jsonc"
+  },
+  "dependencies": {
+    "libsodium-wrappers": "0.7.15"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20260715.1",
+    "@types/libsodium-wrappers": "^0.7.13",
+    "@types/node": "^22.20.1",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.4",
+    "vite-node": "^3.2.4",
+    "vitest": "^3.2.4",
+    "wrangler": "^4.107.0"
+  }
+}
