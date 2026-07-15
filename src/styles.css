@@ -296,6 +296,8 @@ code, .config-block pre { font-family: "SFMono-Regular", Consolas, "Liberation M
 
 .config-path {
   color: var(--muted);
+  font-size: 10px;
+  font-weight: 500;
   white-space: nowrap;
 }
 
