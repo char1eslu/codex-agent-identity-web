@@ -116,9 +116,18 @@ h2 { font-size: 15px; line-height: 1.25; }
   transform: translateY(-3px);
   transition: opacity .14s ease, transform .14s ease;
 }
+.tooltip::before {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  left: 0;
+  height: 8px;
+}
 .tooltip-above { top: auto; right: 0; bottom: calc(100% + 8px); left: auto; transform: translateY(3px); }
+.tooltip-above::before { top: 100%; bottom: auto; }
 .tooltip a { margin-left: 4px; color: var(--green); }
-.help-wrap:hover .tooltip, .help-trigger:focus + .tooltip { opacity: 1; pointer-events: auto; transform: translateY(0); }
+.help-wrap:hover .tooltip, .help-wrap:focus-within .tooltip { opacity: 1; pointer-events: auto; transform: translateY(0); }
 
 .field-head label, .output-label {
   color: var(--ink);
