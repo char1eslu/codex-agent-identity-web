@@ -188,6 +188,17 @@ button.secondary:hover:not(:disabled) { background: var(--soft); }
 
 .usage-heading h3 { margin: 0; font-size: 13px; line-height: 1.3; }
 .usage-heading span { color: var(--muted); font-size: 11px; line-height: 1.4; text-align: right; }
+.usage-comic {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 7;
+  display: block;
+  margin: 0 0 16px;
+  border: 1px solid #eceeec;
+  border-radius: 6px;
+  object-fit: cover;
+  object-position: center 58%;
+}
 
 .usage-steps {
   display: grid;
